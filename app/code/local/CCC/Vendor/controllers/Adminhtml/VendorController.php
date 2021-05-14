@@ -79,6 +79,8 @@ class Ccc_Vendor_Adminhtml_VendorController extends Mage_Adminhtml_Controller_Ac
 
             $vendor->addData($vendorData);
 
+            $vendor->setAttributeSetId($this->getRequest()->getParam('set'));
+
             $vendor->save();
 
             Mage::getSingleton('core/session')->addSuccess("Vendor data added.");

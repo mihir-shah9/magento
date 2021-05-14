@@ -154,7 +154,8 @@ class Ccc_Vendor_Block_Adminhtml_Vendor_Grid extends Mage_Adminhtml_Block_Widget
             '*/*/edit',
             array(
                 'store' => $this->getRequest()->getParam('store'),
-                'id'    => $row->getId()
+                'id'    => $row->getId(),
+                'set' => $row->setAttributeSetId()
             )
         );
     }
