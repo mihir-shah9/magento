@@ -7,7 +7,7 @@ $setup->removeAttribute(Ccc_Vendor_Model_Resource_Vendor::ENTITY, 'phoneNo');
 $setup->addAttribute(Ccc_Vendor_Model_Resource_Vendor::ENTITY, 'phoneno', array(
     'group'                      => 'General',
     'input'                      => 'text',
-    'type'                       => 'text',
+    'type'                       => 'varchar',
     'label'                      => 'phoneno',
     'frontend_class'             => 'input-text validate-length maximum-length-10 minimum-length-10 validate-digits',
     'backend'                    => '',
