@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Ccc_Practice1>
+            <version>0.1.1</version>
+        </Ccc_Practice1>
+    </modules>
+
+    <admin>
+        <routers>
+            <practice1>
+                <use>admin</use>
+                <args>
+                    <module>Ccc_Practice1</module>
+                    <frontName>practice1</frontName>
+                </args>
+            </practice1>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <menu>
+            <practice1 module="practice1">
+                <title>Practice1</title>
+                <sort_order>130</sort_order>
+                <children>
+                    <items module="practice1">
+                        <title>Manage Practice1</title>
+                        <sort_order>0</sort_order>
+                        <action>practice1/adminhtml_practice1</action>
+                    </items>
+                </children>
+            </practice1>
+        </menu>
+
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+
+                <admin>
+                    <children>
+                        <practice1>
+                            <title>Practice1 Module</title>
+                            <sort_order>200</sort_order>
+                        </practice1>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+
+        <layout>
+            <updates>
+                <practice1>
+                    <file>Ccc/practice1.xml</file>
+                </practice1>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <global>
+        <blocks>
+            <practice1>
+                <class>Ccc_Practice1_Block</class>
+            </practice1>
+
+            <!-- <adminhtml>
+                <rewrite>
+                    <customer_grid>Ccc_Practice1_Block_Adminhtml_Customer_Grid</customer_grid>
+                </rewrite>
+            </adminhtml> -->
+        </blocks>
+
+        <helpers>
+            <practice1>
+                <class>Ccc_Practice1_Helper</class>
+            </practice1>
+        </helpers>
+
+        <resources>
+            <practice1_setup>
+                <setup>
+                    <module>Ccc_Practice1</module>
+                </setup>
+            </practice1_setup>
+        </resources>
+
+        <models>
+            <practice1>
+                <class>Ccc_Practice1_Model</class>
+                <resourceModel>practice1_resource</resourceModel>
+            </practice1>
+
+            <practice1_resource>
+                <class>Ccc_Practice1_Model_Resource</class>
+                <entities>
+                    <practice1>
+                        <table>practice1</table>
+                    </practice1>
+                </entities>
+            </practice1_resource>
+        </models>
+    </global>
+</config>

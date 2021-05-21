@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<layout>
+    <practice1_adminhtml_practice1_index>
+        <reference name="content">
+            <block type="practice1/adminhtml_practice1" name="practice1Grid"/>
+        </reference>
+    </practice1_adminhtml_practice1_index>
+
+    <practice1_adminhtml_practice1_edit>
+        <reference name="content">
+            <block type="practice1/adminhtml_practice1_edit" name="practice1Edit"/>
+        </reference>
+    </practice1_adminhtml_practice1_edit>
+</layout>
