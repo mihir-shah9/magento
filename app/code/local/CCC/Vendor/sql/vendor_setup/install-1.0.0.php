@@ -2,6 +2,24 @@
 
 $this->startSetup();
 
+$installer->run("
+-- DROP TABLE IF EXISTS {$this->getTable('vendor/vendor')};");
+$installer->run("
+-- DROP TABLE IF EXISTS {$this->getTable('vendor/vendor_datetime')};");
+$installer->run("
+-- DROP TABLE IF EXISTS {$this->getTable('vendor/vendor_decimal')};");
+$installer->run("
+-- DROP TABLE IF EXISTS {$this->getTable('vendor/vendor_int')};");
+$installer->run("
+-- DROP TABLE IF EXISTS {$this->getTable('vendor/vendor_text')};");
+$installer->run("
+-- DROP TABLE IF EXISTS {$this->getTable('vendor/vendor_varchar')};");
+$installer->run("
+-- DROP TABLE IF EXISTS {$this->getTable('vendor/vendor_char')};");
+$installer->run("
+-- DROP TABLE IF EXISTS {$this->getTable('vendor/vendor_eav_attribute')};");
+
+
 $this->addEntityType(Ccc_Vendor_Model_Resource_Vendor::ENTITY, [
     'entity_model'                => 'vendor/vendor',
     'attribute_model'             => 'vendor/attribute',
@@ -12,7 +30,7 @@ $this->addEntityType(Ccc_Vendor_Model_Resource_Vendor::ENTITY, [
 ]);
 
 $this->createEntityTables('vendor');
-$this->installEntities();
+
 
 $default_attribute_set_id = Mage::getModel('eav/entity_setup', 'core_setup')
     ->getAttributeSetId('vendor', 'Default');

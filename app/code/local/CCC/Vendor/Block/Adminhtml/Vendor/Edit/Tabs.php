@@ -32,6 +32,7 @@ class Ccc_Vendor_Block_Adminhtml_Vendor_Edit_Tabs extends Mage_Adminhtml_Block_W
             $attributeSetId = $this->getRequest()->getParam('set', null);
         }
 
+
         // $attributeSetId = $this->getVendor()->getResource()->getEntityType()->getDefaultAttributeSetId();
 
         // $attributeSetId = 21;

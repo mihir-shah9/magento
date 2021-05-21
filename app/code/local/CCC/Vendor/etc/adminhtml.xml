@@ -21,6 +21,31 @@
 					<sort_order>100</sort_order>
 					<action>vendor/adminhtml_vendor_set</action>
 				</vendor_set>
+
+				<product>
+					<title>Manage Vendor Products</title>
+					<sort_order>140</sort_order>
+					<children>
+						<product>
+							<title>Manage Products</title>
+							<sort_order>100</sort_order>
+							<action>vendor/adminhtml_product</action>
+						</product>
+
+						<product_attribute>
+							<title>Manage Product Attributes</title>
+							<sort_order>100</sort_order>
+							<action>vendor/adminhtml_product_attribute</action>
+						</product_attribute>
+
+						<product_set>
+							<title>Manage Product Attribute Sets</title>
+							<sort_order>100</sort_order>
+							<action>vendor/adminhtml_product_set</action>
+						</product_set>
+
+					</children>
+				</product>
 			</children>
 		</vendor>
 	</menu>

@@ -2,9 +2,30 @@
 
 	<modules>
 		<Ccc_Vendor>
-			<version>1.0.3</version>
+			<version>1.0.10</version>
 		</Ccc_Vendor>
 	</modules>
+
+	<frontend>
+		<layout>
+			<updates>
+				<vendor module="Ccc_vendor">
+					<file>vendor.xml</file>
+				</vendor>
+			</updates>
+		</layout>
+
+		<events>
+			<controller_action_layout_load_before>
+				<observers>
+					<vendor_is_logged_in_observer>
+						<class>vendor/observer</class>
+						<method>beforeLoadLayout</method>
+					</vendor_is_logged_in_observer>
+				</observers>
+			</controller_action_layout_load_before>
+		</events>
+	</frontend>
 
 
 	<global>
@@ -43,6 +64,18 @@
 						<table>vendor_eav_attribute</table>
 					</eav_attribute>
 
+					<product>
+						<table>vendor_product_entities</table>
+					</product>
+
+					<product_attribute_group>
+						<table>vendor_product_attribute_group</table>
+					</product_attribute_group>
+
+					<product_request>
+						<table>vendor_product_request</table>
+					</product_request>
+
 				</entities>
 			</vendor_resource>
 		</models>
@@ -66,6 +99,12 @@
 			<vendor>
 				<class>Ccc_Vendor_Block</class>
 			</vendor>
+
+			<page>
+				<rewrite>
+					<html_welcome>Ccc_Vendor_Block_Page_Html_Welcome</html_welcome>
+				</rewrite>
+			</page>
 
 		</blocks>
 
