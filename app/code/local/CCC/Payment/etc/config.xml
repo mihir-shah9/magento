@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <modules>
+        <Ccc_Payment>
+            <version>0.1.0</version>
+        </Ccc_Payment>
+    </modules>
+
+    <default>
+        <payment>
+            <cod>
+                <active>0</active>
+                <model>Ccc_payment/method_cod</model>
+                <order_status>pending</order_status>
+                <title>COD</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </cod>
+        </payment>
+    </default>
+
+    <global>
+        <helpers>
+            <payment>
+                <class>Ccc_Payment_Helper</class>
+            </payment>
+        </helpers>
+
+        <models>
+            <Ccc_payment>
+                <class>Ccc_Payment_Model</class>
+            </Ccc_payment>
+        </models>
+    </global>
+</config>
