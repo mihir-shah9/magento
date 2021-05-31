@@ -1,0 +1,6 @@
+<form id="edit_form" action="<?php echo $this->getSaveUrl() ?>" method="post" enctype="multipart/form-data">
+    <?php echo $this->getBlockHtml('formkey') ?>
+    <div id="order-message">
+        <?php echo $this->getChildHtml('product') ?>
+    </div>
+</form>

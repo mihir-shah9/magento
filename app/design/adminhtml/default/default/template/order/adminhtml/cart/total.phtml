@@ -1,0 +1,48 @@
+<?php $cart = $this->getCart();
+?>
+
+<div class="box-right entry-edit">
+    <div class="entry-edit-head">
+        <h4>Order Totals</h4>
+    </div>
+    <div id="order-totals" class="order-totals">
+        <div>
+            <table cellspacing="0" cellpadding="8" width="100%">
+                <tbody>
+                    <tr>
+                        <td class="a-right" colspan="1">
+                            Subtotal </td>
+                        <td class="a-right">
+                            <span class="price">
+                                <?php echo $cart->getSubTotal(); ?>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="a-right" colspan="1">
+                            Shipping Amount</td>
+                        <td class="a-right">
+                            <span class="price">
+                                <?php echo $cart->getShippingAmount(); ?>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="a-right" colspan="1">
+                            <strong>Grand Total</strong>
+                        </td>
+                        <td class="a-right">
+                            <strong><span class="price">
+                                    <?php echo $cart->getSubTotal() + $cart->getShippingAmount(); ?>
+                                </span></strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="divider"></div>
+            <div class="order-totals-bottom">
+                <p><button id="id_b1f8791217999f44f498e75b9081ec65" title="Submit Order" type="button" class="scalable save" onclick="submitOrder()"><span><span><span>Submit Order</span></span></span></button></p>
+            </div>
+        </div>
+    </div>
+</div>

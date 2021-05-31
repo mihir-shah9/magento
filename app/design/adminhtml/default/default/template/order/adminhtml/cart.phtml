@@ -1,0 +1,108 @@
+<form id="edit_form" action="<?php echo $this->getSaveUrl() ?>" method="post" enctype="multipart/form-data">
+
+    <?php echo $this->getBlockHtml('formkey') ?>
+
+    <div class="content-header">
+        <h3 class="icon-head head-adminhtml-order"></h3>
+        <h3 class="icon-head head-sales-order">Create New Order</h3>
+        <p class="form-buttons">
+            <button id="reset_order_top_button" title="Cancel" type="button" class="scalable cancel" onclick="deleteConfirm('Are you sure you want to cancel this order?', '<?php echo $this->getUrl('*/adminhtml_order/new') ?>')"><span><span><span>Cancel</span></span></span></button>
+        </p>
+    </div>
+
+    <div id="order-account">
+        <?php echo $this->getChild('account')->setCart($this->getCart())->toHtml(); ?>
+    </div>
+
+    <div id="order_product" style="display: none;">
+        <?php echo $this->getChildHtml('product') ?>
+    </div>
+
+    <div id="order-item">
+        <?php echo $this->getChild('item')->setCart($this->getCart())->toHtml(); ?>
+    </div>
+
+    <div id="order-billingAddress">
+        <?php echo $this->getChild('billingAddress')->setCart($this->getCart())->toHtml(); ?>
+    </div>
+
+    <div id="order-shippingAddress">
+        <?php echo $this->getChild('shippingAddress')->setCart($this->getCart())->toHtml();  ?>
+    </div>
+
+    <div id="order-payment">
+        <?php echo $this->getChild('payment')->setCart($this->getCart())->toHtml();  ?>
+    </div>
+
+    <div id="order-shipping">
+        <?php echo $this->getChild('shipping')->setCart($this->getCart())->toHtml();   ?>
+    </div>
+
+    <div id="order-total">
+        <?php echo $this->getChild('total')->setCart($this->getCart())->toHtml();   ?>
+    </div>
+</form>
+
+
+
+
+<script type="text/javascript">
+    function mihir() {
+        var grid = document.getElementById('order_product');
+        grid.style.display = '';
+    };
+
+    function billingAddress() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/saveBillingAddress'); ?>");
+        form.submit();
+    };
+
+    function shippingAddress() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/saveShippingAddress'); ?>");
+        form.submit();
+    };
+
+    function payment() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/savePaymentMethod'); ?>");
+        form.submit();
+    };
+
+    function shipping() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/saveShippingMethod'); ?>");
+        form.submit();
+    };
+
+    function updateQty() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/saveQty'); ?>");
+        form.submit();
+    };
+
+    function deleteAction() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/delete'); ?>");
+        form.submit();
+    };
+
+    function payment() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/paymentMethod'); ?>");
+        form.submit();
+    };
+
+    function shipping() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/shippingMethod'); ?>");
+        form.submit();
+    };
+
+    function submitOrder() {
+        var form = document.getElementById('edit_form');
+        form.setAttribute('action', "<?php echo $this->getUrl('*/*/submitOrder'); ?>");
+        form.submit();
+    };
+</script>

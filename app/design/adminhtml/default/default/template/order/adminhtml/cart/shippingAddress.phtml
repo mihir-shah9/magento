@@ -1,0 +1,108 @@
+<?php $shippingAddress = $this->getShippingAddress();
+$countries = $this->getCountry();
+// echo "<pre>";
+// print_r($shippingAddress->getData());
+// die;
+?>
+
+<div id="order-shipping_address" class="box-right">
+    <div class="entry-edit" style="position: relative;">
+
+        <div class="entry-edit-head">
+            <h4 class="icon-head fieldset-legend head-shipping-address">Shipping Address</h4>
+            <button type="button" onclick="shippingAddress()" style="float: right;">Save Shipping Address</button>
+        </div>
+
+        <fieldset class="np">
+            <div id="order-shipping_address_choice" class="order-choose-address">
+
+                <input type="checkbox" id="order-shipping_as_billing" name="shipping_as_billing" value="1">
+                <label for="order-shipping_as_billing" class="no-float">Same As Billing Address</label>
+            </div>
+
+            <div class="order-address" id="order-shipping_address_fields">
+                <div class="content">
+                    <div class="hor-scroll">
+                        <table cellspacing="0" class="form-list">
+                            <tbody>
+
+                                <tr>
+                                    <td class="label"><label for="order-shipping_address_firstname">First Name <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input id="order-shipping_address_firstname" name="order[shipping_address][firstname]" value="<?php echo $shippingAddress->getFirstname(); ?>" class=" required-entry input-text required-entry" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="order-shipping_address_middlename">Middle Name/Initial</label></td>
+                                    <td class="value">
+                                        <input id="order-shipping_address_middlename" name="order[shipping_address][middlename]" value="<?php echo $shippingAddress->getMiddlename(); ?>" class=" input-text" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="order-shipping_address_lastname">Last Name <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input id="order-shipping_address_lastname" name="order[shipping_address][lastname]" value="<?php echo $shippingAddress->getLastname(); ?>" class=" required-entry input-text required-entry" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="order-shipping_address_street0">Street Address <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <div class="multi-input"><input id="order-shipping_address_street0" name="order[shipping_address][street]" value="<?php if (is_array($shippingAddress->getStreet())) {
+                                                                                                                                                                echo $shippingAddress->getStreet()[0];
+                                                                                                                                                            } else {
+                                                                                                                                                                echo $shippingAddress->getStreet();
+                                                                                                                                                            }  ?>" class="input-text required-entry" type="text">
+                                        </div>
+                                        <!-- <div class="multi-input"><input id="order-shipping_address_street1" name="order[shipping_address][street][1]" value="" class="input-text" type="text">
+                                        </div> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="order-shipping_address_city">City <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input id="order-shipping_address_city" name="order[shipping_address][city]" value="<?php echo $shippingAddress->getCity(); ?>" class=" required-entry input-text required-entry" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="order-billing_address_country_id">Country <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <select id="order-billing_address_country_id" name="order[billing_address][country_id]" class=" required-entry required-entry select">
+                                            <?php foreach ($countries as $contry) : ?>
+                                                <option <?php if ($shippingAddress->getCountryId() == $contry->getCountryId()) : ?>selected <?php endif; ?>value="<?php echo $contry->getCountryId() ?>"><?php echo $contry->getName() ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="order-shipping_address_region">State/Province <span class="required">*</span></label>
+                                    </td>
+                                    <td class="value">
+                                        <input id="order-shipping_address_state" name="order[shipping_address][region]" value="<?php echo $shippingAddress->getRegion(); ?>" class=" input-text" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="order-shipping_address_postcode">Zip/Postal Code <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input id="order-shipping_address_postcode" name="order[shipping_address][postcode]" value="<?php echo $shippingAddress->getPostcode(); ?>" class=" required-entry input-text required-entry" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label for="order-shipping_address_telephone">Telephone <span class="required">*</span></label></td>
+                                    <td class="value">
+                                        <input id="order-shipping_address_telephone" name="order[shipping_address][telephone]" value="<?php echo $shippingAddress->getTelephone(); ?>" class=" required-entry input-text required-entry" type="text">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="order-save-in-address-book">
+                    <input name="save_in_address_book" type="checkbox" id="order-shipping_address_save_in_address_book" value="1">
+                    <label for="order-shipping_address_save_in_address_book">Save in address book</label>
+                </div>
+            </div>
+            <div style="display: none; position: absolute; background-color: rgb(153, 153, 153); opacity: 0.8; width: 299px; height: 642px; top: 0px; left: 0px;" id="address-shipping-overlay" class="overlay"><span>Shipping address selection is not applicable</span></div>
+
+        </fieldset>
+    </div>
+</div>

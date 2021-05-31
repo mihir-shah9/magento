@@ -1,0 +1,60 @@
+<?php $items = $this->getCart()->getItems();
+// print_r($items);
+// die;
+?>
+
+<div id="order-items">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-cart">Items Ordered</h4>
+            <div class="form-buttons"></div>
+            <button type="button" onclick="mihir()" style="float: right;">Add Products</button>
+            <button type="button" onclick="updateQty()" style="float: right;">Update Qty</button>
+        </div>
+
+        <div class="grid" id="order-items_grid">
+            <table cellspacing="0" class="data order-tables">
+                <colgroup>
+                    <col>
+                    <col width="200">
+                    <col width="200">
+                    <col width="200">
+                    <col width="200">
+                    <col width="200">
+                    <col width="200">
+                </colgroup>
+                <thead>
+                    <tr class="headings">
+                        <th class="no-link">ProductName</th>
+                        <th class="no-link">Price</th>
+                        <th class="no-link">Qty</th>
+                        <th class="no-link">Sku</th>
+                        <th class="no-link last">Action</th>
+                    </tr>
+                </thead>
+                <?php if (!$items) : ?>
+                    <tr class="even">
+                        <td class="empty-text a-center" colspan="100">No ordered items</td>
+                    </tr>
+                <?php else : ?>
+                    <?php foreach ($items as $item) : ?>
+                        <tbody>
+                            <tr class="even">
+
+                                <td><?php echo $item['name']; ?></td>
+
+                                <td><?php echo $item['price']; ?></td>
+
+                                <td><input type="number" name="qty[<?php echo $item['item_id']; ?>]" min="1" value="<?php echo $item['qty']; ?>" /></td>
+
+                                <td><?php echo $item['sku']; ?></td>
+
+                                <td><button name="delete[<?php echo $item['item_id']; ?>]" onclick="deleteAction()">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </table>
+        </div>
+    </div>
+</div>

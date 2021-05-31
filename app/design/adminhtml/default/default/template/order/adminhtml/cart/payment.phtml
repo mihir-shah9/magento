@@ -1,0 +1,32 @@
+<?php $methods = $this->getPayemntMethod();
+// echo "<pre>";
+// print_r($methods);
+// die;
+$cart = $this->getCart();
+?>
+
+<div id="order-billing_method" class="box-left payments">
+    <div>
+        <div class="entry-edit">
+            <div class="entry-edit-head">
+                <div style="float: right;"></div>
+                <h4 class="fieldset-legend head-payment-method icon-head">Payment Method</h4>
+                <button type="button" onclick="payment()" style="float: right;">Save Payment</button>
+            </div>
+            <div class="fieldset">
+                <div id="order-billing_method_form">
+                    <dl class="payment-methods">
+
+                        <?php foreach ($methods as $code => $method) : ?>
+                            <dt>
+                                <input value="<?php echo $code ?>" type="radio" <?php if ($cart->getPaymentMethod() == $code) : ?>checked<?php endif; ?> name="method[payment]" title="Credit Card (saved)">
+
+                                <label for="p_method"><?php echo $method->getTitle() ?></label>
+                            </dt>
+                        <?php endforeach; ?>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

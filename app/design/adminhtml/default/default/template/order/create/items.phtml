@@ -1,0 +1,19 @@
+<?php
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-cart"><?php echo $this->getHeaderText() ?>
+            <button type="submit" onclick="productGrid()" style="float: right;">Add Products</button>
+        </h4>
+        <div class="form-buttons"><?php echo $this->getButtonsHtml() ?></div>
+    </div>
+    <?php echo $this->getChildHtml() ?>
+</div>
+
+<script>
+    function productGrid() {
+        var td = document.getElementById('order-items_grid');
+        td.style.display = '';
+        console.log(td);
+    }
+</script>

@@ -1,0 +1,27 @@
+<?php
+
+class Ccc_Order_Model_Product_Status extends Mage_Core_Model_Abstract
+{
+    const STATUS_ENABLED    = 1;
+    const STATUS_DISABLED   = 2;
+
+    protected function _construct()
+    {
+        $this->_init('order/product_status');
+    }
+
+    static public function getOptionArray()
+    {
+        return array(
+            self::STATUS_ENABLED    => Mage::helper('order')->__('Enabled'),
+            self::STATUS_DISABLED   => Mage::helper('order')->__('Disabled')
+        );
+    }
+
+    static public function getAllOption()
+    {
+        $options = self::getOptionArray();
+        array_unshift($options, array('value' => '', 'label' => ''));
+        return $options;
+    }
+}
